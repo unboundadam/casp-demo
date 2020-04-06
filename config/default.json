@@ -1,0 +1,29 @@
+{
+  "caspServerUrl": "https://localhost/casp/api/v1.0",
+  "username": "so",
+  "password": "Unbound1!",
+  "apiKey": "",
+  "instanceId": "",
+  "data": {
+    "account": {
+      "name": "Test4"
+    },
+
+    "bots": [
+      {
+        "name": "offbot1",
+        "offline": true
+      },
+      {
+        "name": "offbot2",
+        "offline": true
+      },
+      {
+        "name": "bot3"
+      },
+      {
+        "name": "bot4"
+      }
+    ]
+  }
+}
