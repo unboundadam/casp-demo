@@ -228,7 +228,9 @@ export class CaspApi extends Api {
   }
 
   async createParticipant(name: string, offline: boolean = false, email?: string): Promise<CaspParticipant> {
-      email = email || `${name.replace(" ","_")}@someemail.com`;
+    const sanitize = str => str.replace(" ","_").replace("@","_");
+    email = email || `${sanitize(name)}@${sanitize(this.activeAccount.name)}.com`;
+    console.log(email);
     return (await this.post<CaspParticipant>(
       `${this.activeAccountBase}/participants`,
       {
@@ -261,6 +263,5 @@ export class CaspApi extends Api {
     return (await this.post<CaspParticipant>(`/mng/participants/${participantID}/activateOffline`,
       activationData)).data;
   }
-
 
 }

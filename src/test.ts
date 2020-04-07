@@ -24,10 +24,13 @@ async function init() {
         if(bot.offline) {
           await activateBot(casp, bot);
         } else {
-          await caspBot.register(bot.id, bot.activationCode)
+          await caspBot.register(bot.id, bot.activationCode);
         }
       }
-      bot = await casp.findOrCreateParticipant(null, botData.name);
+      if(!bot.offline) {
+        caspBot.autoApprove(bot.id);
+      }
+      // bot = await casp.findOrCreateParticipant(null, botData.name);
       console.log(bot);
   }
 }
