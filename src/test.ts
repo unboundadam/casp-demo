@@ -2,6 +2,7 @@ import { CaspApi, CaspParticipant } from "./casp-api";
 import { CaspBot } from "./casp-bot";
 import fs from 'fs';
 import path from 'path';
+console.log("Starting");
 const {promisify} = require('util');
 const writeFileAsync = promisify(fs.writeFile);
 const config = require('config');
