@@ -13,10 +13,15 @@ var dataRoot = path.join(__dirname, "..", "data");
 var botsFolder = path.join(dataRoot, "bots");
 
 async function init() {
+  console.log("Hello");
   fs.mkdirSync(dataRoot, { recursive: true});
   fs.mkdirSync(botsFolder, { recursive: true});
+  console.log("Created folders");
+  console.log("Initializing CASP");
   await casp.init();
+  console.log("CASP initialized");
   casp.activeAccount = await casp.findOrCreateAccount(data.account.name);
+  console.log("Account created");
   for (let i = 0; i < data.bots.length; i++) {
       var botData = data.bots[i];
       var bot = await casp.findOrCreateParticipant(null, botData.name, botData.offline);
